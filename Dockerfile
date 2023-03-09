@@ -23,3 +23,5 @@ COPY fluent.conf /fluentd/etc/
 COPY supervisord.conf /etc/supervisord.conf
 COPY --from=0 cctail cctail
 COPY log.conf-docker.json ./log.conf.json
+RUN  mkdir /etc/fluent
+RUN ln -s /fluentd/etc/fluent.conf  /etc/fluent/fluent.conf
